@@ -64,6 +64,11 @@ def prep_load_table(df, table_name, env, db, connector, clear_table):
             pass
         conn.execute(f"create table {db}.{table_name} ({cols}) no primary index;")
     else:
+        try:
+            conn.execute(f"create table {db}.{table_name} ({cols}) no primary index;")
+        except Exception as e:
+            print("Exception occurred:", e)
+
         print("Attempting to load table without clearing. If an error occurs it's most likely due to a column mismatch.")
         print("It is recomended to fast load whole tables")
 
