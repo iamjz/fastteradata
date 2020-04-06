@@ -24,7 +24,7 @@ def generate_fastload_script(abs_path, df, table_name, env, db):
     for col, col_type in col_type_zip:
         if col_type.str == "|O":
             try:
-                size = df[col].map(str).map(len).max()
+                size = df[col].map(len).max()
                 define_string += f"{col} (VARCHAR(250)),\n"
             except:
                 define_string += f"{col} (VARCHAR(250)),\n"

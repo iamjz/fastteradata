@@ -42,7 +42,7 @@ def prep_load_table(df, table_name, env, db, connector, clear_table):
 
         if col_type.str == "|O":
             try:
-                #t = "varchar({}) ".format(df[col].map(str).map(len).max())
+                # t = "varchar({}) ".format(df[col].map(str).map(len).max())
                 t = "varchar(250) "
             except:
                 t = "varchar(250) "
